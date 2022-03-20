@@ -227,8 +227,8 @@ public class Inicio extends javax.swing.JFrame {
         
         DefaultCategoryDataset datos= new DefaultCategoryDataset();
         
-        
-        String Cadena ="Comida,precio\nProgramacion,100\nEstadistica,70\nMatematic,60\nLenguaje,40\narte,20\nFisica,50";
+        Archivo a=new Archivo();
+        String Cadena=a.obtenerTexto(ruta);
         String [] lineas=Cadena.split("\n");
         String[] encabezados=lineas[0].split(",");
         
@@ -245,7 +245,7 @@ public class Inicio extends javax.swing.JFrame {
         }
         
         
-        JFreeChart grafico= ChartFactory.createBarChart(titulog,"Cursos","Notas",datos,PlotOrientation.VERTICAL,true,true, false);
+        JFreeChart grafico= ChartFactory.createBarChart(titulog,encabezados[0],encabezados[1],datos,PlotOrientation.VERTICAL,true,true, false);
       
         ChartPanel panel =new ChartPanel(grafico);
         panel.setSize(702,271);
@@ -260,8 +260,7 @@ public class Inicio extends javax.swing.JFrame {
         textField2.setText(null);
         textField1.setText(null);
         
-        Archivo a=new Archivo();
-        System.out.println(a.obtenerTexto("C:\\Users\\walte\\OneDrive\\Escritorio\\1ersemestre2022\\archivo.csv"));
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
          
