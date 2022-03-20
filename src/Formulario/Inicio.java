@@ -172,9 +172,9 @@ public class Inicio extends javax.swing.JFrame {
                                 .addGap(37, 37, 37)
                                 .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addContainerGap(89, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,6 +211,8 @@ public class Inicio extends javax.swing.JFrame {
        File f=fc.getSelectedFile();
        
        textField1.setText(f.getPath());
+       
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -225,12 +227,23 @@ public class Inicio extends javax.swing.JFrame {
         
         DefaultCategoryDataset datos= new DefaultCategoryDataset();
         
-        datos.setValue(100,"Programacione",orden);
-        datos.setValue(70,"Estadistica",orden);
-        datos.setValue(60,"Matematica",orden);
-        datos.setValue(40,"lenguaje",orden);
-        datos.setValue(20,"arte",orden);
-        datos.setValue(50,"Fisica",orden);
+        
+        String Cadena ="Comida,precio\nProgramacion,100\nEstadistica,70\nMatematic,60\nLenguaje,40\narte,20\nFisica,50";
+        String [] lineas=Cadena.split("\n");
+        String[] encabezados=lineas[0].split(",");
+        
+        Dato[] datoz=new Dato[lineas.length-1];
+        String[] columnas;
+        for(int i=1;i<lineas.length;i++){
+            columnas=lineas[i].split(",");
+            
+            datoz[i-1] = new Dato(columnas[0],columnas[1]);
+        }
+       
+        for(Dato dato:datoz){
+            datos.setValue(dato.getValor(),dato.getCategoria(),orden);
+        }
+        
         
         JFreeChart grafico= ChartFactory.createBarChart(titulog,"Cursos","Notas",datos,PlotOrientation.VERTICAL,true,true, false);
       
@@ -246,14 +259,21 @@ public class Inicio extends javax.swing.JFrame {
         
         textField2.setText(null);
         textField1.setText(null);
+        
+        Archivo a=new Archivo();
+        System.out.println(a.obtenerTexto("C:\\Users\\walte\\OneDrive\\Escritorio\\1ersemestre2022\\archivo.csv"));
     }//GEN-LAST:event_jButton3ActionPerformed
 
+         
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
        Orden c=new Orden();
+       
        String algoritmo = (String)jComboBox1.getSelectedItem();
        String tipo = (String)jComboBox2.getSelectedItem();
        String velocidad = (String)jComboBox3.getSelectedItem();
-        
+       
+  
+       
        Orden.jLabel8.setText(algoritmo);
        Orden.jLabel9.setText(tipo);
        Orden.jLabel10.setText(velocidad);
