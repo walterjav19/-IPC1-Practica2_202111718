@@ -215,6 +215,8 @@ public class Inicio extends javax.swing.JFrame {
        
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    
+    public static ChartPanel panel;
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String titulog= textField2.getText(); 
         String orden=(String)jComboBox2.getSelectedItem();
@@ -247,7 +249,7 @@ public class Inicio extends javax.swing.JFrame {
         
         JFreeChart grafico= ChartFactory.createBarChart(titulog,encabezados[0],encabezados[1],datos,PlotOrientation.VERTICAL,true,true, false);
       
-        ChartPanel panel =new ChartPanel(grafico);
+        panel =new ChartPanel(grafico);
         panel.setSize(702,271);
         
         jPanel2.setLayout(new BorderLayout());
@@ -261,11 +263,15 @@ public class Inicio extends javax.swing.JFrame {
         textField1.setText(null);
         
         
+
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
          
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       Orden c=new Orden();
+       
+   
+        Orden c=new Orden();
        
        String algoritmo = (String)jComboBox1.getSelectedItem();
        String tipo = (String)jComboBox2.getSelectedItem();
@@ -276,8 +282,10 @@ public class Inicio extends javax.swing.JFrame {
        Orden.jLabel8.setText(algoritmo);
        Orden.jLabel9.setText(tipo);
        Orden.jLabel10.setText(velocidad);
-        
-        c.setVisible(true);
+       Orden.jPanel3.add(panel,BorderLayout.NORTH);
+       
+       
+       c.setVisible(true);
         
         
         dispose();
