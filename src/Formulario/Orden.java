@@ -13,7 +13,6 @@ public class Orden extends javax.swing.JFrame {
    
     
     
-    Inicio i=new Inicio();
     
     
     public Orden() {
@@ -232,7 +231,9 @@ public class Orden extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
           corriendo=false;
           iniciohilo=false;
-        
+           
+          Archivo c= new Archivo();
+          c.crearArchivo("arhivo1.pdf", "hola mundo"); 
     }//GEN-LAST:event_jButton3ActionPerformed
  
     public static void main(String args[]) {

@@ -1,15 +1,31 @@
 
 package Formulario;
 
+import java.awt.Desktop;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.JOptionPane;
 
 
 public class Archivo {
     
-    
+    public void crearArchivo(String nombre, String texto) {
+
+        File nuevoArchivo=new File(nombre); //crear archivo
+         
+        try{
+            BufferedWriter bw=new BufferedWriter(new FileWriter(nuevoArchivo));
+            bw.write(texto); //escribir
+            bw.close(); //cerrar el flujo y liberar recursos
+            Desktop.getDesktop().open(nuevoArchivo);
+        }catch(IOException a){
+            //en caso de error
+        }
+    }
     
     
     public String obtenerTexto(String ruta) {//path o ruta del textfield2
