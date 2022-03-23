@@ -9,7 +9,7 @@ public class Dato {
     
      public Dato (String categoria, String valor) {
         this.categoria = categoria;
-        this.valor = Integer.parseInt(valor);
+        this.valor  = Integer.parseInt(valor);
     }
      
      

@@ -17,7 +17,7 @@ public class Cronometro extends Thread {
             int x=0;
             
             while(Orden.iniciohilo){
-                Thread.sleep(1000);
+                Thread.sleep(1);
                 ejecutarHiloCronometro(x);
                 x++;
             }
@@ -27,8 +27,12 @@ public class Cronometro extends Thread {
     }
 
     private void ejecutarHiloCronometro(int x) {
-              System.out.println(x+" - "+Thread.currentThread().getName());
-              Orden.segundo++;
+              Orden.milisegundo++;
+              
+              if(Orden.milisegundo>399){
+                  Orden.milisegundo=0;
+                  Orden.segundo++;
+              }
               if(Orden.segundo>59){
                   Orden.segundo=0;
                   Orden.minuto++;
@@ -38,12 +42,13 @@ public class Cronometro extends Thread {
                   Orden.hora++;
               }
               
+              String txtsegundo="",txtmin="",txthora="",txtmilisegundo="";
               
-              
-              
-              
-              String txtsegundo="",txtmin="",txthora="";
-              
+              if(Orden.milisegundo<10){
+                  txtmilisegundo="0"+Orden.milisegundo;
+              }else{
+                  txtmilisegundo=""+Orden.milisegundo;
+              }
               if(Orden.segundo<10){
                   txtsegundo="0"+Orden.segundo;
               }else{
@@ -57,13 +62,7 @@ public class Cronometro extends Thread {
               }else{
                   txthora=""+Orden.hora;
               }
-            
-              
-                            
-              
-              
-              
-              String reloj=txthora+":"+txtmin+":"+txtsegundo;
+              String reloj=txtmin+":"+txtsegundo+":"+txtmilisegundo;
               
               eti.setText(reloj);
     }

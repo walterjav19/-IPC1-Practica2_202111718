@@ -187,9 +187,9 @@ public class Orden extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(401, 401, 401)
                         .addComponent(jButton1)
-                        .addGap(49, 49, 49)
-                        .addComponent(jButton2)
                         .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addGap(26, 26, 26)
                         .addComponent(jButton3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -218,7 +218,7 @@ public class Orden extends javax.swing.JFrame {
         v.setVisible(true);
         dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
- public static int hora=0,minuto=0,segundo=0;
+ public static int hora=0,minuto=0,segundo=0,milisegundo=0;
     public static boolean iniciohilo=true;
     boolean corriendo=false;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -232,7 +232,7 @@ public class Orden extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
           corriendo=false;
           iniciohilo=false;
-
+        
     }//GEN-LAST:event_jButton3ActionPerformed
  
     public static void main(String args[]) {
@@ -277,7 +277,7 @@ public class Orden extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    public static javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     public static javax.swing.JLabel jLabel8;
     public static javax.swing.JLabel jLabel9;

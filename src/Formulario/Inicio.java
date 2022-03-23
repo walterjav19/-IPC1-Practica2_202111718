@@ -211,8 +211,6 @@ public class Inicio extends javax.swing.JFrame {
        File f=fc.getSelectedFile();
        
        textField1.setText(f.getPath());
-       
-       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     
@@ -263,8 +261,6 @@ public class Inicio extends javax.swing.JFrame {
         textField1.setText(null);
         
         
-
-        
     }//GEN-LAST:event_jButton3ActionPerformed
 
          
@@ -286,7 +282,7 @@ public class Inicio extends javax.swing.JFrame {
        
        
        c.setVisible(true);
-        
+       Orden.jLabel6.setText("00:00:00"); 
         
         dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
